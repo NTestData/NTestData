@@ -2,5 +2,16 @@
 bin
 obj
 
+# user-specific settings
+*.user
+*.suo
+
+# NCrunch
+*.ncrunch*
+_NCrunch_*
+
+# third-party packages
+packages
+
 # mstest test results
 TestResults
