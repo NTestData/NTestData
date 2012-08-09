@@ -1,4 +1,4 @@
-namespace NTestData.Framework
+namespace NTestData
 {
     public class ActivatorInstantiator : IInstantiator
     {

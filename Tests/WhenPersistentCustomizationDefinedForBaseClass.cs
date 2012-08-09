@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace NTestData.Framework.Tests
+namespace NTestData.Tests
 {
     public class WhenPersistentCustomizationDefinedForBaseClass
     {

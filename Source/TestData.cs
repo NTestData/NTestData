@@ -1,13 +1,22 @@
-﻿namespace NTestData.Framework
+﻿namespace NTestData
 {
     using System;
     using System.Collections.Generic;
+#if PLUS
+    using Plus;
+#endif
 
     public static class TestData
     {
         static TestData()
         {
-            Session = new TestDataSession();
+            Session = new TestDataSession(
+#if PLUS && AUTOPOCO
+                new AutoPocoInstantiator()
+#elif PLUS && NBUILDER
+                new NBuilderInstantiator()
+#endif
+                );
         }
 
         public static TestDataSession Session { get; set; }
@@ -21,7 +30,7 @@
         }
 
         /// <summary>
-        /// Clears all permanent customizations for objects of type <typeparam name="T">T</typeparam>.
+        /// Clears all permanent customizations for objects of type <typeparamref name="T">T</typeparamref>.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <remarks>Permament customizations for derived types remain intact.</remarks>
@@ -31,14 +40,14 @@
         }
 
         /// <summary>
-        /// Creates object of specified type <typeparam name="T">T</typeparam>
+        /// Creates object of specified type <typeparamref name="T">T</typeparamref>
         /// with all the type-applicable permanent customizations applied
         /// as well as passed ad-hoc ones.
         /// </summary>
         /// <typeparam name="T">Type of object to be created.</typeparam>
         /// <param name="customizations">Ad-hoc customizations to be applied to resulting object.</param>
         /// <returns>
-        /// Object of type <typeparam name="T">T</typeparam>
+        /// Object of type <typeparamref name="T">T</typeparamref>
         /// with all type-applicable permanent customizations applied
         /// as well as passed ad-hoc ones.
         /// </returns>
@@ -48,14 +57,14 @@
         }
 
         /// <summary>
-        /// Creates list of objects of specified type <typeparam name="T">T</typeparam>
+        /// Creates list of objects of specified type <typeparamref name="T">T</typeparamref>
         /// with all the type-applicable permanent customizations applied
         /// as well as passed ad-hoc ones.
         /// </summary>
         /// <typeparam name="T">Type of object to be created.</typeparam>
         /// <param name="size">List capacity (i.e. number of objects in list)</param>
         /// <returns>
-        /// List of objects of specified type <typeparam name="T">T</typeparam>
+        /// List of objects of specified type <typeparamref name="T">T</typeparamref>
         /// with all the type-applicable permanent customizations applied
         /// as well as passed ad-hoc ones.
         /// </returns>
@@ -66,10 +75,14 @@
 
         /// <summary>
         /// Stores customizations permanently and then applies them
-        /// to every created object of type <typeparam name="T">T</typeparam> or of derived type.
+        /// to every created object of type <typeparamref name="T">T</typeparamref> or of derived type.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="customizations"></param>
+        /// <param name="customizations">
+        /// Permanent customizations to be stored and then applied on-the-fly
+        /// to all resulting objects of type <typeparamref name="T">T</typeparamref>
+        /// or all resulting objects of derived types of <typeparamref name="T">T</typeparamref>.
+        /// </param>
         public static void SetPermanentCustomizations<T>(params Action<T>[] customizations) where T : class
         {
             Session.Customizations.AddForType(customizations);

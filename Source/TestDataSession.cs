@@ -1,4 +1,4 @@
-﻿namespace NTestData.Framework
+﻿namespace NTestData
 {
     using System;
     using System.Collections.Generic;
@@ -13,23 +13,28 @@
             Customizations = customizations;
         }
 
+        public TestDataSession(IInstantiator instantiator)
+            : this(instantiator,
+                   new StandardCustomizationsContainer())
+        {
+        }
+
         public TestDataSession()
-            : this(new ActivatorInstantiator(),
-                   new StandardCustomizationsContainer()) { }
+            : this(new ActivatorInstantiator()) { }
 
         public IInstantiator Instantiator { get; set; }
 
         public ICustomizationsContainer Customizations { get; set; }
 
         /// <summary>
-        /// Creates object of specified type <typeparam name="T">T</typeparam>
+        /// Creates object of specified type <typeparamref name="T">T</typeparamref>
         /// with all the type-applicable customizations applied
         /// as well as passed ad-hoc ones.
         /// </summary>
         /// <typeparam name="T">Type of object to be created.</typeparam>
         /// <param name="customizations">Ad-hoc customizations to be applied to resulting object.</param>
         /// <returns>
-        /// Customized object of type <typeparam name="T">T</typeparam>.
+        /// Customized object of type <typeparamref name="T">T</typeparamref>.
         /// </returns>
         public T Create<T>(params Action<T>[] customizations)
         {
@@ -54,14 +59,14 @@
         }
 
         /// <summary>
-        /// Creates list of objects of specified type <typeparam name="T">T</typeparam>
+        /// Creates list of objects of specified type <typeparamref name="T">T</typeparamref>
         /// with all the type-applicable customizations applied
         /// as well as passed ad-hoc ones.
         /// </summary>
         /// <typeparam name="T">Type of object to be created.</typeparam>
         /// <param name="size">List capacity (i.e. number of objects in list)</param>
         /// <returns>
-        /// List of customized objects of specified type <typeparam name="T">T</typeparam>.
+        /// List of customized objects of specified type <typeparamref name="T">T</typeparamref>.
         /// </returns>
         public IList<T> CreateListOf<T>(ushort size)
         {

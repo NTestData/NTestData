@@ -8,14 +8,26 @@ Generally the syntax is extremely simple. Since every customization is an `Actio
 
 Note that this micro-framework is NOT opposed to data generation libraries or frameworks such as NBuilder or AutoPoco but can nicely complement them in most of the cases.
 
-## Few examples
+## How it looks like
 
-Imagine we're required to implement some application in demographic area. And let's say there's some complex algorithmic 
+Here is an (extremely simplified) example. Given following sample class defined:
 
-    var family = TestData.Create<Family>(
-       From("Canada"),
-       Parents(Dad("Alan", 43), Mom("Betty", 39)),
-       Kids(Son("Chris", ), Daughter("Dolly")));
+class Greeting
+{
+public ToString
+}
+
+following code
+
+    var helloWorld = TestData.Create<Greeting>(Hello("World"));
+
+    Console.WhiteLine(greeting.ToString());
+
+    // Output:
+    // Hello, World!
+
+
+
 
 ## Advanced usage
 

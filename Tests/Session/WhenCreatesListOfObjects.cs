@@ -3,7 +3,7 @@ using FakeItEasy;
 using FluentAssertions;
 using Xunit;
 
-namespace NTestData.Framework.Tests.Session
+namespace NTestData.Tests.Session
 {
     public class WhenCreatesListOfObjects
     {

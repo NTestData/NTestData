@@ -15,15 +15,25 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release.Plus.AutoPoco|Any CPU = Release.Plus.AutoPoco|Any CPU
+		Release.Plus.NBuilder|Any CPU = Release.Plus.NBuilder|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9799BA04-E642-46B4-AB8E-7071191D725D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9799BA04-E642-46B4-AB8E-7071191D725D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9799BA04-E642-46B4-AB8E-7071191D725D}.Release.Plus.AutoPoco|Any CPU.ActiveCfg = Release.Plus.AutoPoco|Any CPU
+		{9799BA04-E642-46B4-AB8E-7071191D725D}.Release.Plus.AutoPoco|Any CPU.Build.0 = Release.Plus.AutoPoco|Any CPU
+		{9799BA04-E642-46B4-AB8E-7071191D725D}.Release.Plus.NBuilder|Any CPU.ActiveCfg = Release.Plus.NBuilder|Any CPU
+		{9799BA04-E642-46B4-AB8E-7071191D725D}.Release.Plus.NBuilder|Any CPU.Build.0 = Release.Plus.NBuilder|Any CPU
 		{9799BA04-E642-46B4-AB8E-7071191D725D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9799BA04-E642-46B4-AB8E-7071191D725D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release.Plus.AutoPoco|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release.Plus.AutoPoco|Any CPU.Build.0 = Release|Any CPU
+		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release.Plus.NBuilder|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release.Plus.NBuilder|Any CPU.Build.0 = Release|Any CPU
 		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

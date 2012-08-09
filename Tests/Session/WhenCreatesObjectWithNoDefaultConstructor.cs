@@ -1,7 +1,7 @@
 using FakeItEasy;
 using Xunit;
 
-namespace NTestData.Framework.Tests.Session
+namespace NTestData.Tests.Session
 {
     public class WhenCreatesObjectWithNoDefaultConstructor
     {

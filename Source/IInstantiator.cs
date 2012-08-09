@@ -1,4 +1,4 @@
-﻿namespace NTestData.Framework
+﻿namespace NTestData
 {
     public interface IInstantiator
     {

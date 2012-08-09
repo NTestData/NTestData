@@ -1,4 +1,4 @@
-namespace NTestData.Framework
+namespace NTestData
 {
     using System;
     using System.Collections.Generic;

@@ -3,7 +3,7 @@ using System.Linq;
 using FluentAssertions;
 using Xunit;
 
-namespace NTestData.Framework.Tests.Container
+namespace NTestData.Tests.Container
 {
     public class WhenDuplicateCustomizationsAreNotAllowed
     {

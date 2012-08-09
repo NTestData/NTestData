@@ -2,7 +2,7 @@
 using FizzWare.NBuilder;
 using Xunit;
 
-namespace NTestData.Framework.Tests
+namespace NTestData.Tests
 {
     public class ThirdPartyFixture
     {
