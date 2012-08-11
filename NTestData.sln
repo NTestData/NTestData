@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{89DBA9
 		.nuget\nuget.exe = .nuget\nuget.exe
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples\Samples.csproj", "{E96C487D-763A-483E-963D-392D53FE5016}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,14 @@ Global
 		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release.Plus.NBuilder|Any CPU.Build.0 = Release|Any CPU
 		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE0E2F47-BD20-4353-B380-95F7344571EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E96C487D-763A-483E-963D-392D53FE5016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96C487D-763A-483E-963D-392D53FE5016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96C487D-763A-483E-963D-392D53FE5016}.Release.Plus.AutoPoco|Any CPU.ActiveCfg = Release|Any CPU
+		{E96C487D-763A-483E-963D-392D53FE5016}.Release.Plus.AutoPoco|Any CPU.Build.0 = Release|Any CPU
+		{E96C487D-763A-483E-963D-392D53FE5016}.Release.Plus.NBuilder|Any CPU.ActiveCfg = Release|Any CPU
+		{E96C487D-763A-483E-963D-392D53FE5016}.Release.Plus.NBuilder|Any CPU.Build.0 = Release|Any CPU
+		{E96C487D-763A-483E-963D-392D53FE5016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96C487D-763A-483E-963D-392D53FE5016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
