@@ -9,11 +9,11 @@ namespace NTestData
     public interface ICustomizationsContainer
     {
         /// <summary>
-        /// Adds list of customization actions for type <typeparamref name="T">T</typeparamref>.
+        /// Adds list of customization actions for type <typeparamref name="T"/>.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="customizations">
-        /// Customization actions for type <typeparamref name="T">T</typeparamref>.
+        /// Customization actions for type <typeparamref name="T"/>.
         /// </param>
         void AddForType<T>(params Action<T>[] customizations);
 
@@ -23,17 +23,17 @@ namespace NTestData
         void ClearAll();
 
         /// <summary>
-        /// Clears all customization actions for type <typeparamref name="T">T</typeparamref>.
+        /// Clears all customization actions for type <typeparamref name="T"/>.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         void ClearForType<T>();
 
         /// <summary>
-        /// Gets all customization actions applicable to type <typeparamref name="T">T</typeparamref>.
+        /// Gets all customization actions applicable to type <typeparamref name="T"/>.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns>
-        /// All customization actions applicable to type <typeparamref name="T">T</typeparamref>.
+        /// All customization actions applicable to type <typeparamref name="T"/>.
         /// </returns>
         /// <remarks>
         /// The returned customizations are not necessarily the only ones previously added

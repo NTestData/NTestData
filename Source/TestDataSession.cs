@@ -27,14 +27,14 @@
         public ICustomizationsContainer Customizations { get; set; }
 
         /// <summary>
-        /// Creates object of specified type <typeparamref name="T">T</typeparamref>
+        /// Creates object of specified type <typeparamref name="T"/>
         /// with all the type-applicable customizations applied
         /// as well as passed ad-hoc ones.
         /// </summary>
         /// <typeparam name="T">Type of object to be created.</typeparam>
         /// <param name="customizations">Ad-hoc customizations to be applied to resulting object.</param>
         /// <returns>
-        /// Customized object of type <typeparamref name="T">T</typeparamref>.
+        /// Customized object of type <typeparamref name="T"/>.
         /// </returns>
         public T Create<T>(params Action<T>[] customizations)
         {
@@ -59,14 +59,14 @@
         }
 
         /// <summary>
-        /// Creates list of objects of specified type <typeparamref name="T">T</typeparamref>
+        /// Creates list of objects of specified type <typeparamref name="T"/>
         /// with all the type-applicable customizations applied
         /// as well as passed ad-hoc ones.
         /// </summary>
         /// <typeparam name="T">Type of object to be created.</typeparam>
         /// <param name="size">List capacity (i.e. number of objects in list)</param>
         /// <returns>
-        /// List of customized objects of specified type <typeparamref name="T">T</typeparamref>.
+        /// List of customized objects of specified type <typeparamref name="T"/>.
         /// </returns>
         public IList<T> CreateListOf<T>(ushort size)
         {
