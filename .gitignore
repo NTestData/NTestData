@@ -1,4 +1,4 @@
-# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+# Build Folders
 bin
 obj
 
@@ -6,12 +6,5 @@ obj
 *.user
 *.suo
 
-# NCrunch
-*.ncrunch*
-_NCrunch_*
-
 # third-party packages
 packages
-
-# mstest test results
-TestResults
