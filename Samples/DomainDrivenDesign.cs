@@ -15,7 +15,7 @@ namespace NTestData.Samples
 
         internal class TodoList : IAggregateRoot
         {
-            private readonly List<Task> _tasks = new List<Task>();
+            private List<Task> _tasks = new List<Task>();
 
             public string Name { get; set; }
 
@@ -57,10 +57,28 @@ namespace NTestData.Samples
 
             public void MarkCompleteTaskAtPosition(int position)
             {
-                int index=ConvertPositionToZeroBasedIndex(position);
-                var task = _tasks[index];
-                task.IsComplete = true;
-                _tasks[index] = task;
+                ModifyTaskAtPosition(position,
+                                     task =>
+                                         {
+                                             task.Complete();
+                                             return task;
+                                         });
+            }
+
+            public void MarkIncompleteTaskAtPosition(int position)
+            {
+                ModifyTaskAtPosition(position,
+                                     task =>
+                                     {
+                                         task.Halt();
+                                         return task;
+                                     });
+            }
+
+            private void ModifyTaskAtPosition(int position, Func<Task,Task> modification)
+            {
+                int index = ConvertPositionToZeroBasedIndex(position);
+                _tasks[index] = modification(_tasks[index]);
             }
 
             private int ConvertPositionToZeroBasedIndex(int position)
@@ -83,6 +101,31 @@ namespace NTestData.Samples
                 }
                 return position - 1;
             }
+
+            public void MarkAllTasksComplete()
+            {
+                ModifyAllTasks(task =>
+                                   {
+                                       task.Complete();
+                                       return task;
+                                   });
+            }
+
+            public void MarkAllTasksIncomplete()
+            {
+                ModifyAllTasks(task =>
+                                   {
+                                       task.Halt();
+                                       return task;
+                                   });
+            }
+
+            private void ModifyAllTasks(Func<Task,Task> action)
+            {
+                var modifiedTasks = new List<Task>(_tasks.Count);
+                modifiedTasks.AddRange(_tasks.Select(action));
+                _tasks = modifiedTasks;
+            }
         }
 
         internal interface IValueObject
@@ -94,7 +137,17 @@ namespace NTestData.Samples
         {
             public string Title { get; set; }
             public string Details { get; set; }
-            public bool IsComplete { get; set; }
+            public bool IsComplete { get; private set; }
+
+            public void Complete()
+            {
+                IsComplete = true;
+            }
+
+            public void Halt()
+            {
+                IsComplete = false;
+            }
         }
 
         public class Tests
@@ -125,12 +178,12 @@ namespace NTestData.Samples
                                      });
 
                 // act
-                todoList.MarkCompleteTaskAtPosition(1);
+                todoList.MarkAllTasksComplete();
 
                 // assert
                 todoList.Tasks.Should().HaveCount(4);
-                todoList.CompleteTasks.Should().HaveCount(1);
-                todoList.IncompleteTasks.Should().HaveCount(3);
+                todoList.CompleteTasks.Should().HaveSameCount(todoList.Tasks);
+                todoList.IncompleteTasks.Should().BeEmpty();
             }
 
             [Fact]
@@ -145,12 +198,12 @@ namespace NTestData.Samples
                          Item("try it in your current project(s)")));
 
                 // act
-                todoList.MarkCompleteTaskAtPosition(1);
+                todoList.MarkAllTasksComplete();
 
                 // assert
                 todoList.Tasks.Should().HaveCount(4);
-                todoList.CompleteTasks.Should().HaveCount(1);
-                todoList.IncompleteTasks.Should().HaveCount(3);
+                todoList.CompleteTasks.Should().HaveSameCount(todoList.Tasks);
+                todoList.IncompleteTasks.Should().BeEmpty();
             }
 
             private Action<TodoList> ToDo(string name, params Action<TodoList>[] withTasks)
