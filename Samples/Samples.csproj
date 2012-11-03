@@ -47,7 +47,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DomainDrivenDesign.cs" />
+    <Compile Include="DomainDrivenDesign\Class1.cs" />
+    <Compile Include="DomainDrivenDesign\DomainDrivenDesign.cs" />
     <Compile Include="HelloWorld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
